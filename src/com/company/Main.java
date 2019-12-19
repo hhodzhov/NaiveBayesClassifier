@@ -1,12 +1,12 @@
 package com.company;
 
+import static com.company.Constants.NUM_PARTITIONS;
 import static com.company.Constants.PATH_TO_FILE;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +14,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         List<HouseVote> houseVotes = getHouseVotesFromFile(PATH_TO_FILE);
+        CrossFoldValidation crossFoldValidation = new CrossFoldValidation(houseVotes, NUM_PARTITIONS);
+        crossFoldValidation.validate();
         houseVotes.forEach(System.out::println);
 
     }
 
     private static List<HouseVote> getHouseVotesFromFile(String pathToFile) throws IOException {
-
-        InputStream in;
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(pathToFile)));
 
         List<HouseVote> houseVotes = new ArrayList<>();
