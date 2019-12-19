@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f58387-0fe6-41a3-a71a-4c219ec5e652" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/CrossFoldValidation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/NaiveBayesClassifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Attribute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CrossFoldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CrossFoldValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/HouseVote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/HouseVote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/NaiveBayesClassifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/NaiveBayesClassifier.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,9 +34,9 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15202951" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -84,7 +84,8 @@
       <updated>1576685202133</updated>
       <workItem from="1576685203929" duration="311000" />
       <workItem from="1576685561234" duration="3209000" />
-      <workItem from="1576688806548" duration="4744000" />
+      <workItem from="1576688806548" duration="17822000" />
+      <workItem from="1576765457821" duration="834000" />
     </task>
     <servers />
   </component>
@@ -96,7 +97,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

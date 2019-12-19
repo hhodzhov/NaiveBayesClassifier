@@ -148,6 +148,74 @@ public class HouseVote {
         }
     }
 
+    public String getClassName() {
+        return className;
+    }
+
+    public String getHandicappedInfants() {
+        return handicappedInfants;
+    }
+
+    public String getWaterProjectCostSharing() {
+        return waterProjectCostSharing;
+    }
+
+    public String getAdoptionOfTheBudgetResolution() {
+        return adoptionOfTheBudgetResolution;
+    }
+
+    public String getPhysicianFeeFreeze() {
+        return physicianFeeFreeze;
+    }
+
+    public String getElSalvadorAid() {
+        return elSalvadorAid;
+    }
+
+    public String getReligiousGroupsInSchools() {
+        return religiousGroupsInSchools;
+    }
+
+    public String getAntiSateliteTestBan() {
+        return antiSateliteTestBan;
+    }
+
+    public String getAidToNicaraguanContras() {
+        return aidToNicaraguanContras;
+    }
+
+    public String getMxMissile() {
+        return mxMissile;
+    }
+
+    public String getImmigration() {
+        return immigration;
+    }
+
+    public String getSynfuels() {
+        return synfuels;
+    }
+
+    public String getEducationSpending() {
+        return educationSpending;
+    }
+
+    public String getSuperFundRightToSue() {
+        return superFundRightToSue;
+    }
+
+    public String getCrime() {
+        return crime;
+    }
+
+    public String getDutyFreeExports() {
+        return dutyFreeExports;
+    }
+
+    public String getExportAdminActSouthAfrica() {
+        return exportAdminActSouthAfrica;
+    }
+
     @Override
     public String toString() {
         return "HouseVote{" +

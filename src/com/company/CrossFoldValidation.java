@@ -1,5 +1,6 @@
 package com.company;
 
+import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +25,11 @@ public class CrossFoldValidation {
             trainData.removeAll(testData);
 
             NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier(testData, trainData, houseVotes);
-            bayesClassifier.makeTraining();
-
+            try {
+                bayesClassifier.makeTraining();
+            } catch (IntrospectionException e) {
+                e.printStackTrace();
+            }
         });
     }
 
