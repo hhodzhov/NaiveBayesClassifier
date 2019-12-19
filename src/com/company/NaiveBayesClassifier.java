@@ -1,9 +1,9 @@
 package com.company;
 
-import static com.company.Constants.DEMOCRAT;
-import static com.company.Constants.N;
-import static com.company.Constants.REPUBLICAN;
-import static com.company.Constants.Y;
+import static com.company.AttributeType.N;
+import static com.company.AttributeType.Y;
+import static com.company.ClassType.DEMOCRAT;
+import static com.company.ClassType.REPUBLICAN;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
@@ -34,6 +34,7 @@ public class NaiveBayesClassifier {
         for (Field field : fields) {
             Attribute attribute = new Attribute(field.getName());
             calculateProbabilitiesOfAttribute(trainData, field.getName(), attribute);
+
             attributeMap.put(field.getName(), attribute);
         }
     }
@@ -44,14 +45,38 @@ public class NaiveBayesClassifier {
 
         calculateProbabilityOfDemocrat(trainData, propertyDescriptor, attribute);
         calculateProbabilityOfRepublican(trainData, propertyDescriptor, attribute);
+        calculateProbabilityOfAttributeType(trainData, propertyDescriptor, attribute, Y);
+        calculateProbabilityOfAttributeType(trainData, propertyDescriptor, attribute, N);
 
 //        trainData.stream()
+    }
+
+    private void calculateProbabilityOfAttributeType(List<HouseVote> trainData, PropertyDescriptor propertyDescriptor,
+                                                     Attribute attribute, AttributeType attributeType) {
+        long numberOfAttributeType = trainData.stream()
+                .filter(houseVote -> {
+                    try {
+                        return attributeType.getType().equals(propertyDescriptor.getReadMethod().invoke(houseVote));
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                })
+                .count();
+        switch (attributeType) {
+            case Y:
+                attribute.setPositiveAttributeProbability((double) numberOfAttributeType / trainData.size());
+                break;
+            case N:
+                attribute.setNegativeAttributeProbability((double) numberOfAttributeType / trainData.size());
+                break;
+        }
     }
 
     private void calculateProbabilityOfDemocrat(List<HouseVote> trainData, PropertyDescriptor propertyDescriptor,
                                                 Attribute attribute) {
         long numberOfAllDemocrats = trainData.stream()
-                .filter(houseVote -> DEMOCRAT.equals(houseVote.getClassName()))
+                .filter(houseVote -> DEMOCRAT.getClassType().equals(houseVote.getClassName()))
                 .count();
         attribute.setAllDemocrats(numberOfAllDemocrats);
 
@@ -64,7 +89,7 @@ public class NaiveBayesClassifier {
     private void calculateProbabilityOfRepublican(List<HouseVote> trainData, PropertyDescriptor propertyDescriptor,
                                                   Attribute attribute) {
         long numberOfAllRepublicans = trainData.stream()
-                .filter(houseVote -> REPUBLICAN.equals(houseVote.getClassName()))
+                .filter(houseVote -> REPUBLICAN.getClassType().equals(houseVote.getClassName()))
                 .count();
         attribute.setAllRepublicans(numberOfAllRepublicans);
 
@@ -75,31 +100,32 @@ public class NaiveBayesClassifier {
     }
 
     private void calculateProbabilityForAttributeValue(List<HouseVote> trainData, PropertyDescriptor propertyDescriptor,
-                                                       Attribute attribute, String value, String klass) {
+                                                       Attribute attribute, AttributeType attributeType,
+                                                       ClassType classType) {
         long numberOfClassForAttributeValue = trainData.stream()
-                .filter(houseVote -> klass.equals(houseVote.getClassName()))
+                .filter(houseVote -> classType.getClassType().equals(houseVote.getClassName()))
                 .filter(houseVote -> {
                     try {
-                        return value.equals(propertyDescriptor.getReadMethod().invoke(houseVote));
+                        return attributeType.getType().equals(propertyDescriptor.getReadMethod().invoke(houseVote));
                     } catch (IllegalAccessException | InvocationTargetException e) {
                         return false;
                     }
                 })
                 .count();
 
-        if (DEMOCRAT.equals(klass)) {
-            if (Y.equals(value)) {
+        if (DEMOCRAT.equals(classType)) {
+            if (Y.equals(attributeType)) {
                 attribute.setNumberOfDemocratsForPostiveAttribute(numberOfClassForAttributeValue);
                 attribute.setDemocratProbabilityForPositiveAttribute();
-            } else if (N.equals(value)) {
+            } else if (N.equals(attributeType)) {
                 attribute.setNumberOfDemocratsForNegativeAttribute(numberOfClassForAttributeValue);
                 attribute.setDemocratProbabilityForNegativeAttribute();
             }
         } else {
-            if (Y.equals(value)) {
+            if (Y.equals(attributeType)) {
                 attribute.setNumberOfRepublicansForPositiveAttribute(numberOfClassForAttributeValue);
                 attribute.setRepublicanProbabilityForNegativeAttribute();
-            } else if (N.equals(value)) {
+            } else if (N.equals(attributeType)) {
                 attribute.setNumberOfRepublicansForNegativeAttribute(numberOfClassForAttributeValue);
                 attribute.setRepublicanProbabilityForNegativeAttribute();
             }
