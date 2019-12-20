@@ -55,17 +55,17 @@ public class Attribute {
         return democratProbabilityForPositiveAttribute;
     }
 
-    public double getRepublicanProbabilityFromAttribute() {
+    public double getRepublicanProbabilityForPositiveAttribute() {
         return republicanProbabilityForPositiveAttribute;
     }
 
-    public void setDemocratProbability(double democratProbability) {
-        this.democratProbability = democratProbability;
-    }
+//    public void setDemocratProbability(double democratProbability) {
+//        this.democratProbability = democratProbability;
+//    }
 
-    public void setRepublicanProbability(double republicanProbability) {
-        this.republicanProbability = republicanProbability;
-    }
+//    public void setRepublicanProbability(double republicanProbability) {
+//        this.republicanProbability = republicanProbability;
+//    }
 
     public void setPositiveAttributeProbability(double positiveAttributeProbability) {
         this.positiveAttributeProbability = positiveAttributeProbability;
@@ -75,13 +75,13 @@ public class Attribute {
         this.negativeAttributeProbability = negativeAttributeProbability;
     }
 
-    public double getDemocratProbability() {
-        return democratProbability;
-    }
-
-    public double getRepublicanProbability() {
-        return republicanProbability;
-    }
+//    public double getDemocratProbability() {
+//        return democratProbability;
+//    }
+//
+//    public double getRepublicanProbability() {
+//        return republicanProbability;
+//    }
 
     public double getPositiveAttributeProbability() {
         return positiveAttributeProbability;
