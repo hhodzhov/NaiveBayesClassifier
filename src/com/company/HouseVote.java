@@ -148,72 +148,141 @@ public class HouseVote {
         }
     }
 
+
     public String getClassName() {
         return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public String getHandicappedInfants() {
         return handicappedInfants;
     }
 
+    public void setHandicappedInfants(String handicappedInfants) {
+        this.handicappedInfants = handicappedInfants;
+    }
+
     public String getWaterProjectCostSharing() {
         return waterProjectCostSharing;
+    }
+
+    public void setWaterProjectCostSharing(String waterProjectCostSharing) {
+        this.waterProjectCostSharing = waterProjectCostSharing;
     }
 
     public String getAdoptionOfTheBudgetResolution() {
         return adoptionOfTheBudgetResolution;
     }
 
+    public void setAdoptionOfTheBudgetResolution(String adoptionOfTheBudgetResolution) {
+        this.adoptionOfTheBudgetResolution = adoptionOfTheBudgetResolution;
+    }
+
     public String getPhysicianFeeFreeze() {
         return physicianFeeFreeze;
+    }
+
+    public void setPhysicianFeeFreeze(String physicianFeeFreeze) {
+        this.physicianFeeFreeze = physicianFeeFreeze;
     }
 
     public String getElSalvadorAid() {
         return elSalvadorAid;
     }
 
+    public void setElSalvadorAid(String elSalvadorAid) {
+        this.elSalvadorAid = elSalvadorAid;
+    }
+
     public String getReligiousGroupsInSchools() {
         return religiousGroupsInSchools;
+    }
+
+    public void setReligiousGroupsInSchools(String religiousGroupsInSchools) {
+        this.religiousGroupsInSchools = religiousGroupsInSchools;
     }
 
     public String getAntiSateliteTestBan() {
         return antiSateliteTestBan;
     }
 
+    public void setAntiSateliteTestBan(String antiSateliteTestBan) {
+        this.antiSateliteTestBan = antiSateliteTestBan;
+    }
+
     public String getAidToNicaraguanContras() {
         return aidToNicaraguanContras;
+    }
+
+    public void setAidToNicaraguanContras(String aidToNicaraguanContras) {
+        this.aidToNicaraguanContras = aidToNicaraguanContras;
     }
 
     public String getMxMissile() {
         return mxMissile;
     }
 
+    public void setMxMissile(String mxMissile) {
+        this.mxMissile = mxMissile;
+    }
+
     public String getImmigration() {
         return immigration;
+    }
+
+    public void setImmigration(String immigration) {
+        this.immigration = immigration;
     }
 
     public String getSynfuels() {
         return synfuels;
     }
 
+    public void setSynfuels(String synfuels) {
+        this.synfuels = synfuels;
+    }
+
     public String getEducationSpending() {
         return educationSpending;
+    }
+
+    public void setEducationSpending(String educationSpending) {
+        this.educationSpending = educationSpending;
     }
 
     public String getSuperFundRightToSue() {
         return superFundRightToSue;
     }
 
+    public void setSuperFundRightToSue(String superFundRightToSue) {
+        this.superFundRightToSue = superFundRightToSue;
+    }
+
     public String getCrime() {
         return crime;
+    }
+
+    public void setCrime(String crime) {
+        this.crime = crime;
     }
 
     public String getDutyFreeExports() {
         return dutyFreeExports;
     }
 
+    public void setDutyFreeExports(String dutyFreeExports) {
+        this.dutyFreeExports = dutyFreeExports;
+    }
+
     public String getExportAdminActSouthAfrica() {
         return exportAdminActSouthAfrica;
+    }
+
+    public void setExportAdminActSouthAfrica(String exportAdminActSouthAfrica) {
+        this.exportAdminActSouthAfrica = exportAdminActSouthAfrica;
     }
 
     @Override

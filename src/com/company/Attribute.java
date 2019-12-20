@@ -1,7 +1,6 @@
 package com.company;
 
 public class Attribute {
-    private String name;
     private double democratProbabilityForPositiveAttribute;
     private double republicanProbabilityForPositiveAttribute;
 
@@ -17,15 +16,8 @@ public class Attribute {
     private long allDemocrats;
     private long allRepublicans;
 
-    private double democratProbability;
-    private double republicanProbability;
-
     private double positiveAttributeProbability;
     private double negativeAttributeProbability;
-
-    public Attribute(String name) {
-        this.name = name;
-    }
 
     public void setNumberOfDemocratsForPostiveAttribute(long numberOfDemocratsForPostiveAttribute) {
         this.numberOfDemocratsForPostiveAttribute = numberOfDemocratsForPostiveAttribute;
@@ -44,11 +36,11 @@ public class Attribute {
     }
 
     public void setDemocratProbabilityForPositiveAttribute() {
-        democratProbabilityForPositiveAttribute = numberOfDemocratsForPostiveAttribute / allDemocrats;
+        democratProbabilityForPositiveAttribute = (double) numberOfDemocratsForPostiveAttribute / (double) allDemocrats;
     }
 
     public void setRepublicanProbabilityForPositiveAttribute() {
-        republicanProbabilityForPositiveAttribute = numberOfRepublicansForPositiveAttribute / allRepublicans;
+        republicanProbabilityForPositiveAttribute = (double) numberOfRepublicansForPositiveAttribute / (double) allRepublicans;
     }
 
     public double getDemocratProbabilityForPositiveAttribute() {
@@ -59,14 +51,6 @@ public class Attribute {
         return republicanProbabilityForPositiveAttribute;
     }
 
-//    public void setDemocratProbability(double democratProbability) {
-//        this.democratProbability = democratProbability;
-//    }
-
-//    public void setRepublicanProbability(double republicanProbability) {
-//        this.republicanProbability = republicanProbability;
-//    }
-
     public void setPositiveAttributeProbability(double positiveAttributeProbability) {
         this.positiveAttributeProbability = positiveAttributeProbability;
     }
@@ -74,14 +58,6 @@ public class Attribute {
     public void setNegativeAttributeProbability(double negativeAttributeProbability) {
         this.negativeAttributeProbability = negativeAttributeProbability;
     }
-
-//    public double getDemocratProbability() {
-//        return democratProbability;
-//    }
-//
-//    public double getRepublicanProbability() {
-//        return republicanProbability;
-//    }
 
     public double getPositiveAttributeProbability() {
         return positiveAttributeProbability;
@@ -96,7 +72,7 @@ public class Attribute {
     }
 
     public void setDemocratProbabilityForNegativeAttribute() {
-        this.democratProbabilityForNegativeAttribute = numberOfDemocratsForNegativeAttribute / allDemocrats;
+        this.democratProbabilityForNegativeAttribute = (double) numberOfDemocratsForNegativeAttribute / (double) allDemocrats;
     }
 
     public double getRepublicanProbabilityForNegativeAttribute() {
@@ -104,19 +80,11 @@ public class Attribute {
     }
 
     public void setRepublicanProbabilityForNegativeAttribute() {
-        this.republicanProbabilityForNegativeAttribute = numberOfRepublicansForNegativeAttribute / allRepublicans;
-    }
-
-    public long getNumberOfDemocratsForNegativeAttribute() {
-        return numberOfDemocratsForNegativeAttribute;
+        this.republicanProbabilityForNegativeAttribute = (double) numberOfRepublicansForNegativeAttribute / (double) allRepublicans;
     }
 
     public void setNumberOfDemocratsForNegativeAttribute(long numberOfDemocratsForNegativeAttribute) {
         this.numberOfDemocratsForNegativeAttribute = numberOfDemocratsForNegativeAttribute;
-    }
-
-    public long getNumberOfRepublicansForNegativeAttribute() {
-        return numberOfRepublicansForNegativeAttribute;
     }
 
     public void setNumberOfRepublicansForNegativeAttribute(long numberOfRepublicansForNegativeAttribute) {

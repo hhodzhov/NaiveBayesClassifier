@@ -1,6 +1,7 @@
 package com.company;
 
 public enum ClassType {
+
     DEMOCRAT("democrat"),
     REPUBLICAN("republican");
 

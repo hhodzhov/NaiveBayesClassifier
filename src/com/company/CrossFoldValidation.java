@@ -29,7 +29,7 @@ public class CrossFoldValidation {
             trainData.removeAll(testData);
 
             int positiveMatch = 0;
-            NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier(trainData, houseVotes);
+            NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier(trainData);
             try {
                 bayesClassifier.makeTraining();
                 for (HouseVote houseVote : testData) {
@@ -65,7 +65,7 @@ public class CrossFoldValidation {
 
         int leftInterval = 0;
         int rightInterval = leftInterval + sizeOfSinglePartition;
-        while (rightInterval <= sizeOfData) {
+        while (rightInterval < sizeOfData) {
             intervals.put(leftInterval, rightInterval);
             leftInterval += sizeOfSinglePartition;
             rightInterval = leftInterval + sizeOfSinglePartition;

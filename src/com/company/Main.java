@@ -13,15 +13,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        List<HouseVote> houseVotes = getHouseVotesFromFile(PATH_TO_FILE);
+        List<HouseVote> houseVotes = getHouseVotesFromFile();
         CrossFoldValidation crossFoldValidation = new CrossFoldValidation(houseVotes, NUM_PARTITIONS);
         crossFoldValidation.validate();
-        houseVotes.forEach(System.out::println);
+//        houseVotes.forEach(System.out::println);
 
     }
 
-    private static List<HouseVote> getHouseVotesFromFile(String pathToFile) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(pathToFile)));
+    private static List<HouseVote> getHouseVotesFromFile() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(PATH_TO_FILE)));
 
         List<HouseVote> houseVotes = new ArrayList<>();
         String currentLine = bufferedReader.readLine();

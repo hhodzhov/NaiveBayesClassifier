@@ -15,14 +15,13 @@ import java.util.Map;
 
 public class NaiveBayesClassifier {
     private List<HouseVote> trainData;
-    private List<HouseVote> allData;
     private Map<String, Attribute> attributeMap;
     private double democratProbability;
     private double republicanProbability;
+    private static final String FIELD_CLASS_NAME = "className";
 
-    public NaiveBayesClassifier(List<HouseVote> trainData, List<HouseVote> allData) {
+    public NaiveBayesClassifier(List<HouseVote> trainData) {
         this.trainData = trainData;
-        this.allData = allData;
     }
 
     public void makeTraining() throws IntrospectionException {
@@ -32,10 +31,11 @@ public class NaiveBayesClassifier {
         Field[] fields = clazz.getDeclaredFields();
 
         for (Field field : fields) {
-            Attribute attribute = new Attribute(field.getName());
-            calculateProbabilitiesOfAttribute(trainData, field.getName(), attribute);
-
-            attributeMap.put(field.getName(), attribute);
+            Attribute attribute = new Attribute();
+            if (!FIELD_CLASS_NAME.equals(field.getName())) {
+                calculateProbabilitiesOfAttribute(trainData, field.getName(), attribute);
+                attributeMap.put(field.getName(), attribute);
+            }
         }
     }
 
@@ -123,7 +123,7 @@ public class NaiveBayesClassifier {
         } else {
             if (Y.equals(attributeType)) {
                 attribute.setNumberOfRepublicansForPositiveAttribute(numberOfClassForAttributeValue);
-                attribute.setRepublicanProbabilityForNegativeAttribute();
+                attribute.setRepublicanProbabilityForPositiveAttribute();
             } else if (N.equals(attributeType)) {
                 attribute.setNumberOfRepublicansForNegativeAttribute(numberOfClassForAttributeValue);
                 attribute.setRepublicanProbabilityForNegativeAttribute();
@@ -134,17 +134,20 @@ public class NaiveBayesClassifier {
     public boolean checkNewRecordAccuracy(HouseVote houseVote) throws IntrospectionException, InvocationTargetException,
             IllegalAccessException {
         Class clazz = HouseVote.class;
-        Field[] fields = clazz.getFields();
+        Field[] fields = clazz.getDeclaredFields();
 
-        double probabilityForDemocrats = 0.0;
-        double probabilityForRepublicans = 0.0;
+        double probabilityForDemocrats = 1.0;
+        double probabilityForRepublicans = 1.0;
 
-        double probabilityForAttributes = 0.0;
+        double probabilityForAttributes = 1.0;
 
         for (Field field : fields) {
             PropertyDescriptor propertyDescriptor = new PropertyDescriptor(field.getName(), HouseVote.class);
             String value = (String) propertyDescriptor.getReadMethod().invoke(houseVote);
             Attribute attribute = attributeMap.get(field.getName());
+            if (FIELD_CLASS_NAME.equals(field.getName())) {
+                continue;
+            }
             if (Y.getType().equals(value)) {
                 probabilityForDemocrats *= attribute.getDemocratProbabilityForPositiveAttribute();
                 probabilityForRepublicans *= attribute.getRepublicanProbabilityForPositiveAttribute();
@@ -158,7 +161,7 @@ public class NaiveBayesClassifier {
             }
         }
 
-        probabilityForDemocrats *= democratProbability;
+        probabilityForDemocrats = democratProbability * probabilityForDemocrats;
         probabilityForRepublicans *= republicanProbability;
 
         double democratProbability = probabilityForDemocrats / probabilityForAttributes;
