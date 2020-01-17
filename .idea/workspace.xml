@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f58387-0fe6-41a3-a71a-4c219ec5e652" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/HouseVote.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/HouseVote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Attribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ClassType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ClassType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/CrossFoldValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naive Bayes Classifier/com/company/CrossFoldValidation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CrossFoldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CrossFoldValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/HouseVote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/HouseVote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/NaiveBayesClassifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/NaiveBayesClassifier.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +84,8 @@
       <workItem from="1576685203929" duration="311000" />
       <workItem from="1576685561234" duration="3209000" />
       <workItem from="1576688806548" duration="17822000" />
-      <workItem from="1576765457821" duration="17834000" />
+      <workItem from="1576765457821" duration="22159000" />
+      <workItem from="1579248510791" duration="6129000" />
     </task>
     <servers />
   </component>

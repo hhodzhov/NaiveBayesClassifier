@@ -58,6 +58,9 @@ public class CrossFoldValidation {
         return ((double) positiveMatches / (double) size) * 100;
     }
 
+    /**
+     * @return Map<Integer, Integer> - the intervals for each partition - leftSide and rightSide
+     */
     private Map<Integer, Integer> getPartitionIntervals() {
         int sizeOfData = houseVotes.size();
         Map<Integer, Integer> intervals = new HashMap<>();

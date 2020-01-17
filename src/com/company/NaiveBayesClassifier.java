@@ -57,7 +57,7 @@ public class NaiveBayesClassifier {
                     try {
                         return attributeType.getType().equals(propertyDescriptor.getReadMethod().invoke(houseVote));
                     } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
                     }
                     return false;
                 })
@@ -161,13 +161,13 @@ public class NaiveBayesClassifier {
             }
         }
 
-        probabilityForDemocrats = democratProbability * probabilityForDemocrats;
+        probabilityForDemocrats *= democratProbability;
         probabilityForRepublicans *= republicanProbability;
 
-        double democratProbability = probabilityForDemocrats / probabilityForAttributes;
-        double republicanProbability = probabilityForRepublicans / probabilityForAttributes;
+        double resultDemocratProbability = probabilityForDemocrats / probabilityForAttributes;
+        double resultRepublicanProbability = probabilityForRepublicans / probabilityForAttributes;
 
-        String result = democratProbability > republicanProbability
+        String result = resultDemocratProbability > resultRepublicanProbability
                 ? DEMOCRAT.getClassType()
                 : REPUBLICAN.getClassType();
 
